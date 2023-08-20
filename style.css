@@ -635,8 +635,9 @@ json
 
 .closeBasketMenuBackground,
 .closeBasketMenuNone,
+.footerBasket,
 footer {
-    display: none;
+    visibility: hidden;
 }
 
 /* 
@@ -782,6 +783,7 @@ mobile view
 footer
 */
     footer {
+        visibility: visible;
         width: 100%;
         height: 72px;
         position: fixed;
@@ -794,6 +796,7 @@ footer
     }
 
     .footerBasket {
+        visibility: visible;
         width: 90%;
         background: #f16d1b;
         height: 60%;
@@ -921,8 +924,11 @@ footer
     }
 
     .burgerMenuProfileAndContentBox {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         background: white;
         border-radius: 0;
     }

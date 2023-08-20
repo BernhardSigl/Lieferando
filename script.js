@@ -401,16 +401,16 @@ function renderBasket() {
     if (mealNamesBasket == 0) {
         emptyBasket();
         hide('basketTotalId');
-        hide('sumFooterId');
+        if (document.getElementById("sumFooterId") != null) {
+            document.getElementById("sumFooterId").innerHTML = "";
+        }
     } else {
         hide('basketId');
         show('basketTotalId');
-        show('sumFooterId');
         document.getElementById('basketFilledId').innerHTML = '';
         sumArray = [];
         for (let j = 0; j < mealPricesBasket.length; j++) {
 
-            sum = 0;
             sum = (mealPricesBasket[j] * mealAmountsBasket[j]);
             sumArray.push(sum);
 
@@ -465,9 +465,10 @@ function sumArrayTotalOutput() {
         </div>
     </div >
     `
-    document.getElementById('sumFooterId').innerHTML = /* html */ `
-        (${(sumArrayTotal + 2).toFixed(2)}€)
+    let test = document.getElementById('sumFooterId').innerHTML = /* html */ `
+        ${(sumArrayTotal + 2).toFixed(2)}€
     `
+    console.log(test);
 }
 
 function increaseMealAmountButton(indexBasket) {
@@ -519,23 +520,26 @@ function closeBasketonMobile() {
     deleteFooterButton.classList.remove("deleteFooterButtonNone");
 }
 
-
 function save() {
     let mealNamesBasketAsText = JSON.stringify(mealNamesBasket);
     let mealPricesBasketAsText = JSON.stringify(mealPricesBasket);
     let mealAmountsBasketAsText = JSON.stringify(mealAmountsBasket);
+    let sumArrayAsText = JSON.stringify(sumArray);
     localStorage.setItem('mealNamesBasket', mealNamesBasketAsText);
     localStorage.setItem('mealPricesBasket', mealPricesBasketAsText);
     localStorage.setItem('mealAmountsBasket', mealAmountsBasketAsText);
+    localStorage.setItem('sumArray', sumArrayAsText);
 }
 function load() {
     let mealNamesBasketAsText = localStorage.getItem('mealNamesBasket');
     let mealPricesBasketAsText = localStorage.getItem('mealPricesBasket');
     let mealAmountsBasketAsText = localStorage.getItem('mealAmountsBasket');
-    if (mealNamesBasketAsText && mealPricesBasket && mealAmountsBasket) {
+    let sumArrayAsText = localStorage.getItem('sumArray');
+    if (mealNamesBasketAsText && mealPricesBasket && mealAmountsBasket && sumArray) {
         mealNamesBasket = JSON.parse(mealNamesBasketAsText);
         mealPricesBasket = JSON.parse(mealPricesBasketAsText);
         mealAmountsBasket = JSON.parse(mealAmountsBasketAsText);
+        sumArray = JSON.parse(sumArrayAsText);
     }
 }
 
