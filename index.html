@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Essmaning</title>
+    <link rel="icon" href="img/logosasch.png">
+</head>
+
+<body onload="includeHTML(), render(), load(), renderBasket()">
+
+    <div w3-include-html="templates/header.html"></div>
+    <!--
+    burger menu
+    -->
+    <section class="burgerMenu" id="burgerMenuId">
+        <div class="burgerMenuPosition">
+            <div class="burgerMenuProfileAndContentBox">
+                <div class="burgerMenuProfile">
+                    <div class="nameAndX">
+                        <a href="#">
+                            <h3><b>Bernhard Sigl</b>
+                            </h3>
+                            <img src="./img/x-solid.png" onclick="closeBurgerMenu()">
+                        </a>
+                    </div>
+                    <a href="#" class="burgerMenuPersonalInfo">
+                        <h4>Persönliche Informationen anzeigen</h4>
+                    </a>
+                </div>
+                <div class="burgerMenuContent">
+                    <a href="#"><img src="./img/bag-shopping-solid.png">
+                        <h4>Bestellungen</h4>
+                    </a>
+                    <a href="#"><img src="./img/heart-solid.png">
+                        <h4>Favoriten</h4>
+                    </a>
+                    <a href="#"><img src="./img/house-solid.png">
+                        <h4>Adressen</h4>
+                    </a>
+                    <div class="burgerMenuTrennlinie">
+                    </div>
+                    <div class="burgerMenuPoints">
+                        <div>
+                            <a href="#"><img src="./img/gift-solid.png">
+                                <h4>Punkte</h4>
+                            </a>
+                        </div>
+                        <h4>135 Punkte</h4>
+                    </div>
+                    <a href="#"><img src="./img/stamp-solid.png">
+                        <h4>Stempelkarten</h4>
+                    </a>
+                    <a href="#"><img src="./img/circle-info-solid.png">
+                        <h4>Brauchst du Hilfe?</h4>
+                    </a>
+                    <a href="#"><img src="./img/hand-holding-heart-solid.png">
+                        <h4>Geschenkkarten</h4>
+                    </a>
+                    <div class="burgerMenuTrennlinie">
+                    </div>
+                    <a href="#"><img src="./img/car-side-solid.png">
+                        <h4>Fahrer*in werden</h4>
+                    </a>
+                    <a href="#"><img src="./img/building-solid.png">
+                        <h4>Lieferando for business</h4>
+                    </a>
+                    <div class="burgerMenuTrennlinie">
+                    </div>
+                    <a href="#"><img src="./img/power-off-solid.png">
+                        <h4>Abmelden</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="offClickBurgerMenu" onclick="closeBurgerMenu()" id="offClickBurgerMenu">
+        <div class="burgerMenuBackground">
+        </div>
+    </div>
+
+    <section class="orderAreaAndBasket" onclick="closeBurgerMenu()">
+
+        <div class="orderArea">
+            <img class="restaurantBanner" src="./img/pizza-386717_1280.jpg">
+            <div class="restaurantProfileImageArea">
+                <div class="restaurantProfileImage"></div>
+            </div>
+
+            <div class="restaurantNameArea">
+                <div class="restaurantNameAndInfoAndLikeArea">
+                    <h2>Mahlzeit - Muscheln & Shisha</h2>
+                    <div class="restaurantInfoAndLikeArea">
+                        <div class="restaurantInfo">
+                            <img src="./img/circle-info-solid.png" class="restaurantInfoImage">
+                        </div>
+                        <div class="restaurantLike">
+                            <img src="./img/heart-solid.png" class="restaurantLikeImage">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ratingArea">
+                    <img src="./img/star-regular.png">
+                    <spline class="rating">
+                        <h5>1,5k Bewertungen</h5>
+                    </spline>
+                </div>
+
+                <div class="deliveryTermsArea">
+                    <img src="./img/clock-regular.png">
+                    <spline class="deliveryTime">
+                        <h5>Lieferung in 20-45 min</h5>
+                    </spline>
+                    <div class="trennungspunkt">
+                    </div>
+                    <img src="./img/bag-shopping-solid.png">
+                    <spline class="minimumDeliveryCost">
+                        <h5>Min. 60,00 €</h5>
+                    </spline>
+                    <div class="trennungspunkt">
+                    </div>
+                    <img src="./img/car-side-solid - green.png">
+                    <spline class="deliveryCost">
+                        <h5>2,00€</h5>
+                    </spline>
+                </div>
+
+                <div class="restaurantDescription">
+                    <div class="restaurantDescriptionAndShowMoreLink">
+                        <spline class="restaurantDescriptionVisible">Wir begeistern mit unseren Muscheln und Shishas
+                            ganz
+                            München. Mit der Vielfalt aus Rauch und guten Muscheln verzaubern wir jeden Kunden.
+                        </spline>
+
+                        <span class="dotsRestaurantDescription" id="dotsId"><b>...</b></span>
+                    </div>
+
+                    <span class="restaurantDescriptionHidden" id="showMoreTextId">
+                        Enspannen Sie bei unseren Hausgemachten schwedischen
+                        Köttbular mit einer Wasserpfeife.<br>
+                        Das Team "Mahlzeit - Muscheln & Shisha" wünscht Ihnen einen guten Hunger.
+                    </span>
+
+                    <h5 class="showMoreLink" href="#" onclick="showMoreText()" id="showMoreTextLinkId">
+                        Weiterlesen
+                    </h5>
+                </div>
+
+                <div class="mealCategory">
+                    <a class="lupe" id="lupe">
+                        <img src="./img/magnifying-glass-solid.png">
+                    </a>
+
+                    <a class="favoriteButton" href="#lupe">
+                        <h5 class="favoriteButtonFont">Beliebt</h5>
+                        <img src="./img/heart-solid-red.png">
+                    </a>
+
+                    <a class="foodCategory" href="#mealId4">
+                        <h5>Fleisch</h5>
+                    </a>
+
+                    <a class="foodCategory" href="#mealId9">
+                        <h5>Shisha</h5>
+                    </a>
+
+                    <a class="foodCategory" href="#mealId15">
+                        <h5>Muscheln</h5>
+                    </a>
+
+                    <a class="foodCategory" href="#mealId19">
+                        <h5>Bayerisch</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="foodMenuContent" id="foodMenuContentId">
+            </div>
+
+        </div>
+
+        <div class="basketArea" id="openBasketonMobileId">
+            <div class="basketTitle">
+                <h2>Warenkorb</h2>
+            </div>
+            <div class="basketContent" id="basketId">
+            </div>
+            <div class="basketContent" id="basketFilledId">
+            </div>
+            <div class="totalArea">
+                <div id="basketTotalId">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="closeBasketMenuBackground" onclick="closeBasketonMobile()" class="closeBasketMenu"
+        id="closeBasketonMobileId">
+        <img src="./img/x-solid.png">
+    </div>
+
+    <div w3-include-html="templates/footer.html"></div>
+
+
+</body>
+
+</html>
