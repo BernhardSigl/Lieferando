@@ -203,7 +203,17 @@
         <img src="./img/x-solid.png">
     </div>
 
-    <div w3-include-html="templates/footer.html"></div>
+    <footer>
+        <div class="furtherProducts" onclick="closeBasketonMobile()">
+            <h2>Weitere Produkte hinzufügen</h2>
+        </div>
+
+        <div class="footerBasket" onclick="openBasketonMobile()" id="deleteFooterButtonId">
+            <img src="./img/bag-white.png">
+            <h2>Warenkorb</h2>
+            <h2 id="sumFooterId"></h2>
+        </div>
+    </footer>
 
 
 </body>
